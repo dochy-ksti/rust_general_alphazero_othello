@@ -8,9 +8,9 @@ class MctsArgs:
     do_arena: bool = True
     # Revert the model if rejected
     enable_rejecting: bool = False
-    # if False, compare with a basically random player
+    # if False, compare with a basically random player in the arena
     compare_with_self: bool = False
-    # In the original implementation, randomly choose training data
+    # In the original implementation, randomly choose the training data
     random_choice: bool = False
     
     # Newer is better
