@@ -56,7 +56,8 @@ class NNetWrapper:
     def train(self, examples: list[TrainExample]):
         args = self.args
         # いつもpylanceはこれに文句言うけど言われた通り直すとエラーになる
-        optimizer = optim.Adam(self.nnet.parameters())  # type: ignore
+        optimizer = optim.Adam(self.nnet.parameters(),
+                               lr=self.args.lr)  # type: ignore
 
         for epoch in range(args.epochs):
             print("EPOCH ::: " + str(epoch + 1))

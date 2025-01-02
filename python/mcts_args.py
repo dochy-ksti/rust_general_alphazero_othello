@@ -23,7 +23,6 @@ class MctsArgs:
 
     is_release: bool = False
 
-    # 1e-3(Default) is too large
     lr: float = 1e-4
 
     dropout: float = 0.1
