@@ -56,8 +56,8 @@ class NNetWrapper:
     def train(self, examples: list[TrainExample]):
         args = self.args
         # いつもpylanceはこれに文句言うけど言われた通り直すとエラーになる
-        optimizer = optim.Adam(self.nnet.parameters(),
-                               lr=self.args.lr)  # type: ignore
+        optimizer = optim.Adam(self.nnet.parameters(),  # type: ignore
+                               lr=self.args.lr)
 
         for epoch in range(args.epochs):
             print("EPOCH ::: " + str(epoch + 1))
@@ -182,5 +182,5 @@ class NNetWrapper:
             raise IOError("No model in path {}".format(filepath))
         map_location = None if self.args.cuda else "cpu"
         checkpoint = torch.load(  # type: ignore
-            filepath, map_location=map_location)
+            filepath, map_location=map_location, weights_only=True)
         self.nnet.load_state_dict(checkpoint["state_dict"])
